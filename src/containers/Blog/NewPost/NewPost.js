@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import axios from "../../../axios";
+import axios from "axios";
 
 import "./NewPost.css";
 
@@ -13,6 +13,7 @@ class NewPost extends Component {
   };
 
   componentDidMount() {
+    //If unauth => this.props.history.replace('/posts')
     console.log(this.props);
   }
 
@@ -23,7 +24,7 @@ class NewPost extends Component {
       body: this.state.content,
       author: this.state.author
     };
-    axios.get("/posts").then(response => {
+    axios.get("https://jsonplaceholder.typicode.com/posts").then(response => {
       console.log("response");
       // this.setState({ submitted: true });
     });

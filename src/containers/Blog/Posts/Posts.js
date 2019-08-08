@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "../../../axios";
+import axios from "axios";
 import { Route } from "react-router-dom";
 
 import Post from "../../../components/Post/Post";
@@ -14,7 +14,7 @@ class Posts extends Component {
   componentDidMount() {
     console.log(this.props);
     axios
-      .get("/posts")
+      .get("https://jsonplaceholder.typicode.com/posts")
       .then(response => {
         console.log(response.data);
         const posts = response.data.slice(0, 4);
